@@ -14,11 +14,13 @@ header {
 
 main {
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1, h2 {
     margin: 0;
-    text-align: center;
     padding-bottom: 1rem;
 }
 
@@ -51,8 +53,24 @@ h1, h2 {
 }
 
 .product p {
-    margin: 0;
+    margin: 0 0 1rem; /* Добавление нижнего отступа */
     color: #007bff;
     font-size: 1.1rem;
     font-weight: bold;
+}
+
+button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button#checkout {
+    margin: 2rem auto 0 auto; /* Центрирование кнопки */
+    display: block; /* Убедиться, что кнопка ведет себя как блок */
+    align-self: center; /* Центрирование кнопки в колонке */
 }
