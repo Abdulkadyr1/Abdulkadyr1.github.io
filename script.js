@@ -22,7 +22,7 @@ document.getElementById('checkout').addEventListener('click', () => {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                window.location.href = `https://t.me/${data.chat}`;
+                window.location.href = `https://t.me/Ridak_11`;
             } else {
                 alert('Ошибка при переходе к оплате');
             }
