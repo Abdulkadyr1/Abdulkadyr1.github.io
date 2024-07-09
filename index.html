@@ -34,7 +34,6 @@
         }
         .product-info {
             flex-grow: 1;
-            padding-right: 20px; /* Отступ справа */
         }
         .product-info h3 {
             margin: 0;
@@ -48,7 +47,6 @@
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-            padding-left: 20px; /* Отступ слева */
         }
         .product-price {
             font-size: 1.2em;
@@ -65,7 +63,6 @@
             transition: background-color 0.3s;
             width: 150px; /* Фиксированный размер кнопки */
             text-align: center;
-            margin-top: 10px; /* Отступ сверху для кнопки */
         }
         .add-to-cart:hover {
             background-color: #e65c50; /* Более темный оттенок кнопки при наведении */
@@ -88,21 +85,20 @@
         }
         @media (max-width: 768px) {
             .product {
-                flex-direction: column;
+                flex-direction: row;
                 align-items: flex-start;
             }
             .product img {
                 width: 80px;
                 height: 80px;
-                margin-bottom: 10px;
+                margin-bottom: 0;
             }
             .product-info h3 {
                 font-size: 1em;
             }
             .product-info {
                 flex-grow: 1;
-                margin-right: 0;
-                padding-right: 0; /* Убрать отступ справа на мобильных устройствах */
+                margin-right: 10px;
             }
             .product-price {
                 font-size: 1em;
@@ -110,9 +106,9 @@
                 margin-bottom: 5px;
             }
             .add-to-cart {
-                width: 150px; /* Фиксированный размер кнопки */
-                padding: 6px 12px;
-                margin-top: 10px; /* Отступ сверху для кнопки */
+                width: 100px; /* Фиксированный размер кнопки */
+                padding: 6px 8px;
+                margin-top: 5px;
                 align-self: flex-end;
             }
             .price-and-cart {
@@ -120,7 +116,6 @@
                 flex-direction: column;
                 align-items: flex-end;
                 margin-left: auto;
-                padding-left: 0; /* Убрать отступ слева на мобильных устройствах */
             }
         }
     </style>
@@ -131,7 +126,7 @@
             <img src="image1.jpg" alt="Букет из кенийской розы">
             <div class="product-info">
                 <h3>Букет из кенийской розы</h3>
-                <p>101 роза</p>
+                <p>Какое-то описание...</p>
             </div>
             <div class="price-and-cart">
                 <div class="product-price">7500 ₽</div>
@@ -142,7 +137,7 @@
             <img src="image1.jpg" alt="Букет из 201 кенийской розы">
             <div class="product-info">
                 <h3>Букет из 201 кенийской розы</h3>
-                <p>201 роза</p>
+                <p>Какое-то описание...</p>
             </div>
             <div class="price-and-cart">
                 <div class="product-price">14500 ₽</div>
@@ -153,7 +148,7 @@
             <img src="image1.jpg" alt="Пионовидные розы">
             <div class="product-info">
                 <h3>Пионовидные розы</h3>
-                <p></p>
+                <p>Какое-то описание...</p>
             </div>
             <div class="price-and-cart">
                 <div class="product-price">250 ₽</div>
@@ -164,7 +159,7 @@
             <img src="image1.jpg" alt="Букет из 101 кенийской розы">
             <div class="product-info">
                 <h3>Букет из 101 кенийской розы</h3>
-                <p></p>
+                <p>Какое-то описание...</p>
             </div>
             <div class="price-and-cart">
                 <div class="product-price">7500 ₽</div>
@@ -175,7 +170,7 @@
             <img src="image1.jpg" alt="Букет жениха">
             <div class="product-info">
                 <h3>Букет жениха</h3>
-                <p></p>
+                <p>Какое-то описание...</p>
             </div>
             <div class="price-and-cart">
                 <div class="product-price">10000 ₽</div>
