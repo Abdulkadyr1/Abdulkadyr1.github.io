@@ -7,23 +7,24 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #202020;
-            color: #fff;
+            background-color: #f0f0f0;
+            color: #333;
             margin: 0;
             padding: 0;
         }
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
         .product {
             display: flex;
             align-items: center;
-            background-color: #333;
+            background-color: #fff;
             border-radius: 8px;
             margin-bottom: 20px;
             padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .product img {
             width: 80px;
@@ -40,6 +41,7 @@
         }
         .product-info p {
             margin: 5px 0;
+            color: #666;
         }
         .product-price {
             margin-right: 20px;
@@ -47,12 +49,16 @@
             white-space: nowrap; /* Prevent line breaks */
         }
         .add-to-cart {
-            padding: 5px 10px;
+            padding: 10px 20px;
             background-color: #007bff;
             color: #fff;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .add-to-cart:hover {
+            background-color: #0056b3;
         }
         #checkout {
             display: none;
@@ -65,6 +71,22 @@
             text-align: center;
             margin: 20px auto;
             width: fit-content;
+            transition: background-color 0.3s;
+        }
+        #checkout:hover {
+            background-color: #218838;
+        }
+        @media (max-width: 768px) {
+            .product {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .product img {
+                margin-bottom: 10px;
+            }
+            .product-price, .add-to-cart {
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
@@ -110,7 +132,7 @@
             <img src="image1.jpg" alt="Букет жениха">
             <div class="product-info">
                 <h3>Букет жениха</h3>
-                <p></p>
+                <p></p> 
             </div>
             <div class="product-price">10000 ₽</div>
             <button class="add-to-cart" data-name="Букет жениха" data-price="10000">Добавить в корзину</button>
