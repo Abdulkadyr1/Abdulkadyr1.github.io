@@ -78,25 +78,30 @@
         }
         @media (max-width: 768px) {
             .product {
-                flex-direction: column;
+                flex-direction: row;
                 align-items: flex-start;
             }
             .product img {
-                width: 100px;
-                height: 100px;
-                margin-bottom: 10px;
+                width: 80px;
+                height: 80px;
+                margin-bottom: 0;
             }
             .product-info h3 {
                 font-size: 1em;
+            }
+            .product-info {
+                flex-grow: 1;
+                margin-right: 10px;
             }
             .product-price {
                 font-size: 1em;
                 align-self: flex-end;
             }
             .add-to-cart {
-                width: 100%;
+                width: auto;
                 padding: 6px 12px;
                 margin-top: 10px;
+                align-self: flex-end;
             }
         }
     </style>
