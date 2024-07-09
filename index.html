@@ -19,7 +19,7 @@
         }
         .product {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             background-color: #333;
             border-radius: 8px;
             margin-bottom: 20px;
@@ -49,6 +49,7 @@
             font-size: 1.2em;
             white-space: nowrap;
             margin-bottom: 10px;
+            margin-right: 10px;
         }
         .add-to-cart {
             padding: 10px 20px;
@@ -80,17 +81,22 @@
         }
         @media (max-width: 768px) {
             .product {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: nowrap;
+                justify-content: space-between;
             }
             .product img {
-                margin-bottom: 10px;
+                margin-bottom: 0;
+                margin-right: 10px;
             }
             .product-info {
-                margin-bottom: 10px;
+                flex-grow: 1;
+                margin-right: 10px;
             }
             .product-price, .add-to-cart {
-                margin-top: 10px;
+                margin-top: 0;
+                margin-bottom: 0;
             }
         }
     </style>
@@ -98,59 +104,49 @@
 <body>
     <div class="container">
         <div class="product">
-            <img src="image1.jpg" alt="Букет из кенийской розы">
+            <img src="images/image1.jpg" alt="Букет из кенийской розы">
             <div class="product-info">
                 <h3>Букет из кенийской розы</h3>
                 <p>101 роза</p>
             </div>
-            <div>
-                <div class="product-price">7500 ₽</div>
-                <button class="add-to-cart" data-name="Букет из кенийской розы" data-price="7500">Добавить в корзину</button>
-            </div>
+            <div class="product-price">7500 ₽</div>
+            <button class="add-to-cart" data-name="Букет из кенийской розы" data-price="7500">Добавить в корзину</button>
         </div>
         <div class="product">
-            <img src="image1.jpg" alt="Букет из 201 кенийской розы">
+            <img src="images/image2.jpg" alt="Букет из 201 кенийской розы">
             <div class="product-info">
                 <h3>Букет из 201 кенийской розы</h3>
                 <p>201 роза</p>
             </div>
-            <div>
-                <div class="product-price">14500 ₽</div>
-                <button class="add-to-cart" data-name="Букет из 201 кенийской розы" data-price="14500">Добавить в корзину</button>
-            </div>
+            <div class="product-price">14500 ₽</div>
+            <button class="add-to-cart" data-name="Букет из 201 кенийской розы" data-price="14500">Добавить в корзину</button>
         </div>
         <div class="product">
-            <img src="image1.jpg" alt="Пионовидные розы">
+            <img src="images/image3.jpg" alt="Пионовидные розы">
             <div class="product-info">
                 <h3>Пионовидные розы</h3>
                 <p></p>
             </div>
-            <div>
-                <div class="product-price">250 ₽</div>
-                <button class="add-to-cart" data-name="Пионовидные розы" data-price="250">Добавить в корзину</button>
-            </div>
+            <div class="product-price">250 ₽</div>
+            <button class="add-to-cart" data-name="Пионовидные розы" data-price="250">Добавить в корзину</button>
         </div>
         <div class="product">
-            <img src="image1.jpg" alt="Букет из 101 кенийской розы">
+            <img src="images/image4.jpg" alt="Букет из 101 кенийской розы">
             <div class="product-info">
                 <h3>Букет из 101 кенийской розы</h3>
                 <p></p>
             </div>
-            <div>
-                <div class="product-price">7500 ₽</div>
-                <button class="add-to-cart" data-name="Букет из 101 кенийской розы" data-price="7500">Добавить в корзину</button>
-            </div>
+            <div class="product-price">7500 ₽</div>
+            <button class="add-to-cart" data-name="Букет из 101 кенийской розы" data-price="7500">Добавить в корзину</button>
         </div>
         <div class="product">
-            <img src="image1.jpg" alt="Букет жениха">
+            <img src="images/image5.jpg" alt="Букет жениха">
             <div class="product-info">
                 <h3>Букет жениха</h3>
                 <p></p>
             </div>
-            <div>
-                <div class="product-price">10000 ₽</div>
-                <button class="add-to-cart" data-name="Букет жениха" data-price="10000">Добавить в корзину</button>
-            </div>
+            <div class="product-price">10000 ₽</div>
+            <button class="add-to-cart" data-name="Букет жениха" data-price="10000">Добавить в корзину</button>
         </div>
         <button id="checkout">Перейти к оплате</button>
     </div>
