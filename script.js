@@ -14,7 +14,7 @@ document.getElementById('checkout').addEventListener('click', () => {
     const cartData = JSON.stringify(cart);
     console.log("Cart data:", cartData);
 
-    fetch('https://abcd1234.ngrok.io/checkout', {
+    fetch('https://9bf6-46-16-228-163.ngrok-free.app/checkout', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
