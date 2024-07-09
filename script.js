@@ -1,23 +1,20 @@
 let cart = [];
 
-// Обработчик событий для кнопок "Добавить в корзину"
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', () => {
         const name = button.getAttribute('data-name');
-        const price = parseInt(button.getAttribute('data-price'), 10); // Преобразование в число
+        const price = parseInt(button.getAttribute('data-price'), 10);
         cart.push({ name, price });
         updateCart();
-        console.log(`Добавлен товар: ${name}, цена: ${price}`); // Отладочное сообщение
+        console.log(`Added to cart: ${name}, Price: ${price}`);
     });
 });
 
-// Обработчик событий для кнопки "Перейти к оплате"
 document.getElementById('checkout').addEventListener('click', () => {
     const cartData = JSON.stringify(cart);
-    console.log("Корзина:", cartData); // Отладочное сообщение
+    console.log("Cart data:", cartData);
 
-    // Отправка данных на сервер
-    fetch('https://f4d5-195-19-120-238.ngrok-free.app/checkout', {
+    fetch('https://9a3e-46-16-228-163.ngrok-free.app/checkout', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -25,27 +22,33 @@ document.getElementById('checkout').addEventListener('click', () => {
         body: cartData
     })
         .then(response => {
-            console.log("Ответ сервера:", response); // Отладочное сообщение
+            console.log("Server response:", response);
             if (!response.ok) {
-                throw new Error(`Ошибка HTTP: ${response.status}`);
+                throw new Error(`HTTP error: ${response.status}`);
             }
             return response.json();
         })
         .then(data => {
-            console.log("Данные от сервера:", data); // Отладочное сообщение
+            console.log("Server data:", data);
             if (data.success) {
-                console.log("Успешный ответ от сервера", data); // Отладочное сообщение
+                console.log("Successful server response", data);
                 window.location.href = `https://t.me/${data.chat}`;
             } else {
-                alert('Ошибка при переходе к оплате');
+                alert('Error during checkout');
             }
         })
-        .catch(error => console.error('Ошибка:', error));
+        .catch(error => console.error('Error:', error));
 });
 
 function updateCart() {
     const checkoutButton = document.getElementById('checkout');
     const itemCount = cart.length;
     checkoutButton.textContent = `Перейти к оплате (${itemCount})`;
-    checkoutButton.style.display = 'block';
+
+    if (itemCount > 0) {
+        checkoutButton.style.display = 'block';
+        checkoutButton.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        checkoutButton.style.display = 'none';
+    }
 }
