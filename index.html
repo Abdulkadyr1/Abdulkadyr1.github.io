@@ -23,19 +23,16 @@
             background-color: #333;
             border-radius: 8px;
             margin-bottom: 20px;
-            padding: 10px;
-            flex-wrap: wrap;
+            padding: 20px;
         }
         .product img {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             border-radius: 8px;
             margin-right: 20px;
         }
         .product-info {
             flex-grow: 1;
-            display: flex;
-            flex-direction: column;
         }
         .product-info h3 {
             margin: 0;
@@ -48,17 +45,17 @@
         .product-price {
             font-size: 1.2em;
             white-space: nowrap;
-            margin-bottom: 10px;
-            margin-right: 10px;
+            margin-right: 20px;
         }
         .add-to-cart {
-            padding: 10px 20px;
+            padding: 8px 16px;
             background-color: #007bff;
             color: #fff;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s;
+            display: block;
         }
         .add-to-cart:hover {
             background-color: #0056b3;
@@ -81,22 +78,25 @@
         }
         @media (max-width: 768px) {
             .product {
-                flex-direction: row;
-                align-items: center;
-                flex-wrap: nowrap;
-                justify-content: space-between;
+                flex-direction: column;
+                align-items: flex-start;
             }
             .product img {
-                margin-bottom: 0;
-                margin-right: 10px;
+                width: 100px;
+                height: 100px;
+                margin-bottom: 10px;
             }
-            .product-info {
-                flex-grow: 1;
-                margin-right: 10px;
+            .product-info h3 {
+                font-size: 1em;
             }
-            .product-price, .add-to-cart {
-                margin-top: 0;
-                margin-bottom: 0;
+            .product-price {
+                font-size: 1em;
+                align-self: flex-end;
+            }
+            .add-to-cart {
+                width: 100%;
+                padding: 6px 12px;
+                margin-top: 10px;
             }
         }
     </style>
