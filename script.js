@@ -22,6 +22,7 @@ document.getElementById('checkout').addEventListener('click', () => {
         body: cartData
     })
     .then(response => {
+        console.log("Server response status:", response.status);
         if (response.ok) {
             return response.json();
         } else {
@@ -32,7 +33,12 @@ document.getElementById('checkout').addEventListener('click', () => {
         console.log("Server data:", data);
         if (data.success) {
             console.log("Successful server response", data);
-            document.body.innerHTML = '<h1>Заказ уже оформляется, переходите в чат с ботом для продолжения</h1>';
+            document.body.innerHTML = `
+                <div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f5f5dc;">
+                    <h1 style="color: #a0522d; font-family: 'Arial', sans-serif; font-size: 1.5em; text-align: center;">
+                        Заказ уже оформляется, переходите в чат с ботом для продолжения
+                    </h1>
+                </div>`;
         } else {
             alert('Error during checkout');
         }
@@ -52,4 +58,3 @@ function updateCart() {
         checkoutButton.style.display = 'none';
     }
 }
-
