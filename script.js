@@ -26,7 +26,8 @@ document.getElementById('checkout').addEventListener('click', () => {
             if (!response.ok) {
                 throw new Error(`HTTP error: ${response.status}`);
             }
-            return response.json();
+            console.log("Server response:", response);
+            //return response.json();
         })
         .then(data => {
             console.log("Server data:", data);
