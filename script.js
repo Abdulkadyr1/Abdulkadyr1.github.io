@@ -11,10 +11,10 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 });
 
 document.getElementById('checkout').addEventListener('click', () => {
-    const cartData = JSON.stringify(cart);
-    console.log("Cart data:", cartData);
+    const cartData = JSON.stringify({ cart: cart });
+    console.log("Cart data to be sent:", cartData);
 
-    fetch('https://ba54-195-19-120-244.ngrok-free.app/checkout', { // URL вашего сервера
+    fetch('https://ba54-195-19-120-244.ngrok-free.app/checkout', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -32,7 +32,7 @@ document.getElementById('checkout').addEventListener('click', () => {
             console.log("Server data:", data);
             if (data.success) {
                 console.log("Successful server response", data);
-                window.location.href = `https://t.me/${data.chat}`; // Переход в чат бота
+                window.location.href = `https://t.me/${data.chat}`;
             } else {
                 alert('Error during checkout');
             }
