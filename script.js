@@ -14,7 +14,7 @@ document.getElementById('checkout').addEventListener('click', () => {
     const cartData = JSON.stringify(cart);
     console.log("Cart data:", cartData);
 
-    fetch('https://1c5c-195-19-120-244.ngrok-free.app/checkout', {
+    fetch('https://1c5c-195-19-120-244.ngrok-free.app/checkout', { // URL вашего сервера
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -32,7 +32,7 @@ document.getElementById('checkout').addEventListener('click', () => {
             console.log("Server data:", data);
             if (data.success) {
                 console.log("Successful server response", data);
-                window.location.href = `https://t.me/${data.chat}`;
+                window.location.href = `https://t.me/${data.chat}`; // Переход в чат бота
             } else {
                 alert('Error during checkout');
             }
