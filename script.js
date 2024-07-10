@@ -21,24 +21,23 @@ document.getElementById('checkout').addEventListener('click', () => {
         },
         body: cartData
     })
-        .then(response => {
-            console.log("Server response:", response);
-            if (!response.ok) {
-                throw new Error(`HTTP error: ${response.status}`);
-            }
-            console.log("Server response:", response);
-            //return response.json();
-        })
-        .then(data => {
-            console.log("Server data:", data);
-            if (data.success) {
-                console.log("Successful server response", data);
-                window.location.href = `https://t.me/${data.chat}`;
-            } else {
-                alert('Error during checkout');
-            }
-        })
-        .catch(error => console.error('Error:', error));
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+    })
+    .then(data => {
+        console.log("Server data:", data);
+        if (data.success) {
+            console.log("Successful server response", data);
+            document.body.innerHTML = '<h1>Заказ уже оформляется, переходите в чат с ботом для продолжения</h1>';
+        } else {
+            alert('Error during checkout');
+        }
+    })
+    .catch(error => console.error('Error:', error));
 });
 
 function updateCart() {
@@ -53,3 +52,4 @@ function updateCart() {
         checkoutButton.style.display = 'none';
     }
 }
+
