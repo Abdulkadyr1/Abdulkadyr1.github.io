@@ -11,14 +11,27 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 });
 
 document.getElementById('checkout').addEventListener('click', () => {
-    fetch('https://6a86-185-244-20-32.ngrok-free.app/createOrderID', {
+    const chatID = prompt("Введите ваш Chat ID из Telegram:");
+
+    if (!chatID) {
+        alert("Chat ID обязателен для оформления заказа.");
+        return;
+    }
+
+    const orderData = {
+        order_id: uuid.v4(),
+        cart: cart,
+        chat_id: parseInt(chatID, 10)
+    };
+
+    fetch('https://your-server-url/checkout', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
-        }
+        },
+        body: JSON.stringify(orderData)
     })
     .then(response => {
-        console.log("OrderID response status:", response.status);
         if (response.ok) {
             return response.json();
         } else {
@@ -26,35 +39,7 @@ document.getElementById('checkout').addEventListener('click', () => {
         }
     })
     .then(data => {
-        console.log("OrderID data:", data);
-        if (data.order_id) {
-            const orderID = data.order_id;
-            const cartData = JSON.stringify({ order_id: orderID, cart: cart });
-            console.log("Cart data to be sent:", cartData);
-
-            return fetch('https://6a86-185-244-20-32.ngrok-free.app/checkout', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: cartData
-            });
-        } else {
-            throw new Error('Failed to create OrderID');
-        }
-    })
-    .then(response => {
-        console.log("Checkout response status:", response.status);
-        if (response.ok) {
-            return response.json();
-        } else {
-            throw new Error(`HTTP error: ${response.status}`);
-        }
-    })
-    .then(data => {
-        console.log("Server data:", data);
         if (data.success) {
-            console.log("Successful server response", data);
             document.body.innerHTML = `
                 <div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f5f5dc;">
                     <h1 style="color: #a0522d; font-family: 'Arial', sans-serif; font-size: 1.5em; text-align: center;">
@@ -62,10 +47,10 @@ document.getElementById('checkout').addEventListener('click', () => {
                     </h1>
                 </div>`;
         } else {
-            alert('Error during checkout');
+            alert('Ошибка при оформлении заказа');
         }
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => console.error('Ошибка:', error));
 });
 
 function updateCart() {
