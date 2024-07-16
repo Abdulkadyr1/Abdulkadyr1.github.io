@@ -24,7 +24,7 @@ document.getElementById('checkout').addEventListener('click', () => {
         chat_id: parseInt(chatID, 10)
     };
 
-    fetch('https://your-server-url/checkout', {
+    fetch('https://6a86-185-244-20-32.ngrok-free.app/checkout', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
