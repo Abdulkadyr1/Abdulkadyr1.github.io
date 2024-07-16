@@ -11,25 +11,36 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 });
 
 document.getElementById('checkout').addEventListener('click', () => {
-    const chatID = prompt("Введите ваш Chat ID из Telegram:");
-
-    if (!chatID) {
-        alert("Chat ID обязателен для оформления заказа.");
-        return;
-    }
-
-    const orderData = {
-        order_id: uuid.v4(),
-        cart: cart,
-        chat_id: parseInt(chatID, 10)
-    };
-
-    fetch('https://6a86-185-244-20-32.ngrok-free.app/checkout', {
+    fetch('https://your-server-url/createOrderID', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(orderData)
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+    })
+    .then(data => {
+        if (data.order_id) {
+            const orderData = {
+                order_id: data.order_id,
+                cart: cart
+            };
+
+            return fetch('https://your-server-url/checkout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(orderData)
+            });
+        } else {
+            throw new Error('Failed to create OrderID');
+        }
     })
     .then(response => {
         if (response.ok) {
