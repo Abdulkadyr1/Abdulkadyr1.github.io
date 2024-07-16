@@ -11,7 +11,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 });
 
 document.getElementById('checkout').addEventListener('click', () => {
-    fetch('https://your-server-url/createOrderID', {
+    fetch('https://6a86-185-244-20-32.ngrok-free.app/createOrderID', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -32,7 +32,7 @@ document.getElementById('checkout').addEventListener('click', () => {
             const cartData = JSON.stringify({ order_id: orderID, cart: cart });
             console.log("Cart data to be sent:", cartData);
 
-            return fetch('https://your-server-url/checkout', {
+            return fetch('https://6a86-185-244-20-32.ngrok-free.app/checkout', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
