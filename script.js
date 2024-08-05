@@ -11,7 +11,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 });
 
 document.getElementById('checkout').addEventListener('click', () => {
-    fetch('https://6a86-185-244-20-32.ngrok-free.app/checkout', {
+    fetch('https://5c59-185-244-20-32.ngrok-free.app/checkout', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
