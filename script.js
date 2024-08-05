@@ -11,36 +11,12 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 });
 
 document.getElementById('checkout').addEventListener('click', () => {
-    fetch('https://6a86-185-244-20-32.ngrok-free.app/createOrderID', {
+    fetch('https://6a86-185-244-20-32.ngrok-free.app/checkout', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
-        }
-    })
-    .then(response => {
-        if (response.ok) {
-            return response.json();
-        } else {
-            throw new Error(`HTTP error: ${response.status}`);
-        }
-    })
-    .then(data => {
-        if (data.order_id) {
-            const orderData = {
-                order_id: data.order_id,
-                cart: cart
-            };
-
-            return fetch('https://6a86-185-244-20-32.ngrok-free.app/checkout', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(orderData)
-            });
-        } else {
-            throw new Error('Failed to create OrderID');
-        }
+        },
+        body: JSON.stringify({ order_id: 'order123', cart: cart })
     })
     .then(response => {
         if (response.ok) {
