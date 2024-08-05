@@ -20,7 +20,6 @@
         .product {
             display: flex;
             align-items: center;
-            justify-content: space-between; /* Это добавлено */
             background-color: #d3b8ae; /* Темно-бежевый фон блоков */
             border-radius: 8px;
             margin-bottom: 20px;
@@ -62,7 +61,7 @@
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s;
-            width: 150px; /* Фиксированный размер кнопки */
+            width: 200px; /* Фиксированный размер кнопки */
             text-align: center;
         }
         .add-to-cart:hover {
@@ -86,13 +85,13 @@
         }
         @media (max-width: 768px) {
             .product {
-                flex-direction: column;
-                align-items: flex-start; /* Это добавлено */
+                flex-direction: row;
+                align-items: flex-start;
             }
             .product img {
                 width: 80px;
                 height: 80px;
-                margin-bottom: 10px; /* Это изменено */
+                margin-bottom: 0;
             }
             .product-info h3 {
                 font-size: 1em;
@@ -107,7 +106,7 @@
                 margin-bottom: 5px;
             }
             .add-to-cart {
-                width: 100%; /* Фиксированный размер кнопки */
+                width: 100px; /* Фиксированный размер кнопки */
                 padding: 6px 8px;
                 margin-top: 5px;
                 align-self: flex-end;
